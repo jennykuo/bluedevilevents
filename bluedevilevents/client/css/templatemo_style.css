@@ -706,10 +706,6 @@ and (max-width : 480px) {
 	}
 }
 
-<!-- TO DELETE?? 
-@media(min-width:300px) and (max-width:500px){
-    #container_2 img.resize { width: 300px; height: auto; }
-}-->
 #container_2 {
     text-align: center;
 }
