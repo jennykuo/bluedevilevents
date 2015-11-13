@@ -1,0 +1,2 @@
+\COPY RegisteredUser(id, first_name, last_name, email) FROM 'data/Users.dat' WITH DELIMITER '|' NULL '' CSV
+\COPY Events(eventid, name, date, start_time, end_time, description, location, tags, netid) FROM 'data/Events.DAT' WITH DELIMITER '|' NULL '' CSV
