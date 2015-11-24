@@ -13,17 +13,23 @@ if (Meteor.isClient) {
       // increment the counter when button is clicked
       //Session.set('counter', Session.get('counter') + 1);
       MyEvents.insert({
-        "name" : document.getElementById("label1").innerHTML,
-        "location" : document.getElementById("locationId").innerHTML,
-        "first" : document.getElementById("first").innerHTML,
-        "last" : document.getElementById("last").innerHTML,
+        "name" : document.getElementById("eventName").innerHTML,
+        "location" : document.getElementById("eventLocation").innerHTML,
+        "first" : document.getElementById("firstName").innerHTML,
+        "last" : document.getElementById("lastName").innerHTML,
         "email" : document.getElementById("email").innerHTML,
-        "netid" : document.getElementById("netid").innerHTML,
-        "date" : document.getElementById("date").innerHTML,
-        "time" : document.getElementById("time").innerHTML
+        "netid" : document.getElementById("netId").innerHTML,
+        "date" : document.getElementById("eventDate").innerHTML,
+        "startTime" : document.getElementById("eventStart").innerHTML
+        "endTime" : document.getElementById("eventEnd").innerHTML
       })
     }
   });
+
+  /*Template.create.events({
+
+
+  })
 
   Template.person.events({
     'click #first': function () {
@@ -88,7 +94,7 @@ if (Meteor.isClient) {
     }
     
   });
-}
+}*/
 
 
 
