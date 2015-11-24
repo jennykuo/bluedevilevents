@@ -12,7 +12,8 @@ if (Meteor.isClient) {
     'click button': function () {
       // increment the counter when button is clicked
       //Session.set('counter', Session.get('counter') + 1);
-      MyEvents.insert({
+      event.preventDefault();
+      var eventInfo = ({
         "name" : document.getElementById("label1").innerHTML,
         "location" : document.getElementById("locationId").innerHTML,
         "first" : document.getElementById("first").innerHTML,
@@ -21,7 +22,8 @@ if (Meteor.isClient) {
         "netid" : document.getElementById("netid").innerHTML,
         "date" : document.getElementById("date").innerHTML,
         "time" : document.getElementById("time").innerHTML
-      })
+      });
+      Meteor.call('newEvent', {eventInfo: eventInfo});
     }
   });
 
@@ -88,12 +90,19 @@ if (Meteor.isClient) {
     }
     
   });
+
+  Meteor.methods({
+    newEvent: function(post){
+      MyEvents.insert(post);
+    }
+  });
 }
 
-
-
 if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
+  
+  Meteor.methods({
+    newEvent: function(post){
+      MyEvents.insert(post);
+    }
   });
 }
