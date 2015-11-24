@@ -188,6 +188,7 @@ ddsmoothmenu.init({
             <img src="images/calendar_sample.png" height="492" width="700"></div>
         
         <br><br><br><br><br><br><br><br><br><br><br><br>COMING SOON: **List of expandable/collapsable tags will be here**
+        <button class="hello">{{createdAtFormatted}}</button>
             
         <div class="clear"></div>
     </div>
@@ -629,6 +630,25 @@ menuItems.click(function(e){
   e.preventDefault();
 });
 
+if(Meteor.isClient){
+    console.log("hello world");
+}
+if(Meteor.isServer){
+    console.log("hello world");
+}
+
+/*Template.leaderboard.events({
+    'click .hello': function(){
+        console.log("you clicked a .hello button");
+    }
+});*/
+
+Template.leaderboard.helpers({
+  createdAtFormatted: function () {
+    console.log("is your face working?"));
+  }
+});
+
 // Bind to scroll
 $(window).scroll(function(){
    // Get container scroll position
@@ -653,3 +673,7 @@ $(window).scroll(function(){
 });
       </script>
 </body>
+
+<template name="leaderboard">
+    Hello World
+</template>

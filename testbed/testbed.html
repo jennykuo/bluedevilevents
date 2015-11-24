@@ -1,14 +1,42 @@
 <head>
-  <title>testbed</title>
+  <title>Duke Groups</title>
 </head>
 
 <body>
-  <h1>Welcome to Meteor!</h1>
+  <h1>Create Event!</h1>
 
-  {{> hello}}
+  <h3 class="header">Event Name: </h3>
+  {{> changeName}}
+  <h3> Your information</h3>
+  {{> person}}
+  <h3> Location: </h3>
+  {{> changeLocation}}
+  <h3> When is the event happening </h3>
+  {{> date}}
+  <h4> Add this event </h4>
+  {{> add}}
 </body>
 
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
+<template name="add">
+  <button>Add to Database</button>
+</template>
+<template name="changeName">
+	<label id="label1">click here to input event name</label> <!-- to grab this use .innerHTML .innerText-->
+	<h5 id="description">description of event: </h5>
+</template>
+<template name="changeLocation">
+	<label id="locationId">where is the event located</label>
+</template>
+<template name="person">
+	<h5> First name: </h5>
+	<label id="first">Ash</label>
+	<h5> Last name: </h5><label id="last">Ketchum</label>
+	<h5> NetId: </h5><label id="netid">pik25</label> <!--pikachu is 25 in the pokedex-->
+	<h5>Email: </h5><label id="email">catchem.all@duke.edu</label>
+</template>
+<template name="date">
+	<h5> Date of event: </h5>
+	<label id="date"> 1/1/2001 </label>
+	<h5> Time of event: </h5>
+	<label id="time"> 00:00:00 </label>
 </template>
