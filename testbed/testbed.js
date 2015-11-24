@@ -12,6 +12,7 @@ if (Meteor.isClient) {
     'click button': function () {
       // increment the counter when button is clicked
       //Session.set('counter', Session.get('counter') + 1);
+<<<<<<< HEAD
       MyEvents.insert({
         "name" : document.getElementById("eventName").innerHTML,
         "location" : document.getElementById("eventLocation").innerHTML,
@@ -23,6 +24,20 @@ if (Meteor.isClient) {
         "startTime" : document.getElementById("eventStart").innerHTML
         "endTime" : document.getElementById("eventEnd").innerHTML
       })
+=======
+      event.preventDefault();
+      var eventInfo = ({
+        "name" : document.getElementById("label1").innerHTML,
+        "location" : document.getElementById("locationId").innerHTML,
+        "first" : document.getElementById("first").innerHTML,
+        "last" : document.getElementById("last").innerHTML,
+        "email" : document.getElementById("email").innerHTML,
+        "netid" : document.getElementById("netid").innerHTML,
+        "date" : document.getElementById("date").innerHTML,
+        "time" : document.getElementById("time").innerHTML
+      });
+      Meteor.call('newEvent', {eventInfo: eventInfo});
+>>>>>>> bbb6dc621daf8db865f7152adb02e4d385ae57f4
     }
   });
 
@@ -94,12 +109,24 @@ if (Meteor.isClient) {
     }
     
   });
+<<<<<<< HEAD
 }*/
 
+=======
+>>>>>>> bbb6dc621daf8db865f7152adb02e4d385ae57f4
 
+  Meteor.methods({
+    newEvent: function(post){
+      MyEvents.insert(post);
+    }
+  });
+}
 
 if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
+  
+  Meteor.methods({
+    newEvent: function(post){
+      MyEvents.insert(post);
+    }
   });
 }
