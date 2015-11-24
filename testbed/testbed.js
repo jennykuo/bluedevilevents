@@ -12,8 +12,8 @@ if (Meteor.isClient) {
     'click button': function () {
       // increment the counter when button is clicked
       //Session.set('counter', Session.get('counter') + 1);
-      PlayerList.insert({
-        "eventName" : document.getElementById("label1").innerHTML,
+      MyEvents.insert({
+        "name" : document.getElementById("label1").innerHTML,
         "location" : document.getElementById("locationId").innerHTML,
         "first" : document.getElementById("first").innerHTML,
         "last" : document.getElementById("last").innerHTML,
@@ -97,5 +97,3 @@ if (Meteor.isServer) {
     // code to run on server at startup
   });
 }
-
-PlayerList = new Mongo.Collection('players')

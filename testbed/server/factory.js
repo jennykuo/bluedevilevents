@@ -6,12 +6,12 @@
 
 numUsers 		= 10;
 numEvents 		= 10;
-resetDatabase 	= true;
+populateDB 		= false;
 
 //****** SETTING UP THE FACTORIES *******
 
-RegisteredUsers = new Meteor.Collection('registeredUsers');
-MyEvents = new Meteor.Collection('myEvents');
+RegisteredUsers.remove({});
+MyEvents.remove({});
 
 Factory.define('registeredUser', RegisteredUsers, {
 	//TODO: Update this to use an array for the users based on input at top
@@ -39,7 +39,7 @@ Factory.define('myEvent', MyEvents, {
 
 //******* POPULATING THE PRODUCTION-LEVEL DATABASE *******
 
-if(resetDatabase){
+if(populateDB){
 
 	RegisteredUsers.remove({});
 	MyEvents.remove({});
