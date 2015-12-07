@@ -98,26 +98,27 @@ ddsmoothmenu.init({
             <p>This week's featured Events:	</p>
            	
             <div class="container">
-                <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">              
+                <div class="col-xs-1 col-sm-1 col-md-12 templatemo_col12">              
               	<div class="portfolio-item">
 							<div class="portfolio-thumb">
-								<img src="/images/featured/11032015_dukeengage.png" alt="portfolio 8">
+								<img src="/images/junyang.png" alt="portfolio 8">
 								<div class="overlay-p">
 									<a href="/images/featured/11032015_dukeengage.png" data-rel="lightbox[portfolio]">
                                     	<ul>
-                                        	<li><strong>DukeEngage International Application Due</strong></li>
-                                            <li>Date: Tuesday, November 3</li>
-                                            <li>Time: 12:00 PM</li>
-                                            <li>Location: N/A</li>
+                                        	<li><br><br><br><br><br><br><br><br><strong>CS 316 Project Demos</strong></li>
+                                            <li>Date: Monday, December 7</li>
+                                            <li>Time: 12:30 PM</li>
+                                            <li>Location: LSRC</li>
+                                            <li>Sponsered By: Computer Science Department</li>
                                         </ul>
 									</a>
 								</div>
-							</div> <!-- /.portfolio-thumb -->
+							</div>
 						</div>
       
               </div>
               
-              <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">              
+              <!--<div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">              
               	<div class="portfolio-item">
 							<div class="portfolio-thumb">
 								<img src="images/featured/11052015_cia.png" alt="portfolio 8">
@@ -131,7 +132,7 @@ ddsmoothmenu.init({
                                         </ul>
 									</a>
 								</div>
-							</div> <!-- /.portfolio-thumb -->
+							</div> 
 						</div>
       
               </div>
@@ -150,7 +151,7 @@ ddsmoothmenu.init({
                                         </ul>
 									</a>
 								</div>
-							</div> <!-- /.portfolio-thumb -->
+							</div> 
 						</div>
       
               </div>
@@ -169,10 +170,10 @@ ddsmoothmenu.init({
                                         </ul>
 									</a>
 								</div>
-							</div> <!-- /.portfolio-thumb -->
+							</div> 
 						</div>
       
-              </div>
+              </div> -->
               
       </div>
     </div>
@@ -183,13 +184,11 @@ ddsmoothmenu.init({
     <!--Search Events Start-->
     <div class="templatemo_officers" id="templatemo_events">
         <br><br>
-    	<h2>Calendar of Events</h2>
+    	<h2>Search Events</h2>
             <h3><br></h3>
-        	<div class="col-xs-50 col-sm-10 col-md-6 templatemo_col10">
-            <img src="images/calendar_sample.png" height="492" width="700"></div>
-        
-        <br><br><br><br><br><br><br><br><br><br><br><br>COMING SOON: **List of expandable/collapsable tags will be here**
-        <button class="hello">{{createdAtFormatted}}</button>
+
+            {{>search}}
+            
             
         <div class="clear"></div>
     </div>
@@ -197,7 +196,7 @@ ddsmoothmenu.init({
     
     
     
-    
+
    
     
     <!--Events Add Events Start-->
@@ -206,10 +205,14 @@ ddsmoothmenu.init({
             *Indicates Required Fields<br><br><br>
             <form method='post'>
             
-            Event Name*:<br> <input type='text' name='eventName' id='eventName' placeholder="Event Name" /><br><br>
-            Event Description:<br> <textarea name='eventDescription' id='eventDescription'></textarea><br><br><br>
+            <h2>Event Details</h2>
+
+            <u><b>Event Name*:</b></u><br> <input type='text' name='eventName' id='eventName' placeholder="Event Name" /><br><br>
+            <u><b>Host Organization:</b></u><br>If applicable, please provide the organization responsible for hosting the event.<br>
+            <input type='text' name='eventHost' id='eventHost' placeholder="Event Host" /><br><br>
+            <u><b>Event Description:</b></u><br> <textarea name='eventDescription' id='eventDescription'></textarea><br><br><br>
             
-            Event Location*<br>
+            <u><b>Event Location*:</b></u><br>
             <select type= 'text' name='eventLocation' id='eventLocation'>
               <option></option>
               <option value="West Campus">West Campus</option>
@@ -218,16 +221,16 @@ ddsmoothmenu.init({
               <option value="Off-Campus">Off-Campus</option>
             </select><br><br>
 
-            Specific Location*:<br>
+            <u><b>Specific Location*:</b></u><br>
             *Input specific building (and room, if applicable) or physical address<br>
             <input type='text' name='specificLocation' id='specificLocation' /><br><br>
 
-            Event Date*:<br> <input type='date' name='eventDate' id='eventDate' /><br><br>
-            Event Time Start:<br> <input type='time' name='eventStart' id='eventStart' /><br><br>
-            Event End Start:<br> <input type='time' name='eventEnd' id='eventEnd' /><br><br><br>
+            <u><b>Event Date*:</b></u><br> <input type='date' name='eventDate' id='eventDate' /><br><br>
+            <u><b>Event Time Start:</b></u><br> <input type='time' name='eventStart' id='eventStart' /><br><br>
+            <u><b>Event Time End:</b></u><br> <input type='time' name='eventEnd' id='eventEnd' /><br><br>
             
 
-            Event Tag:<br>
+            <u><b>Event Tag:</b></u><br>
             *Leave blank if you do not want to tag your event.<br>
             <select type= 'text' name='eventTag' id='eventTag'>
               <option></option>
@@ -247,12 +250,16 @@ ddsmoothmenu.init({
               <option value="Social">Social</option>
               <option value="Sports">Sports</option>
               <option value="Volunteering">Volunteering</option>
-            </select><br><br>
+            </select><br><br><br><br>
 
-            First Name*:<br> <input type='text' name='firstName' id='firstName' /><br><br>
-            Last Name*:<br> <input type='text' name='lastName' id='lastName' /><br><br>
-            NetID*:<br> <input type='text' name='netID' id='netID' /><br><br>
-            Email*:<br> <input type='text' name='email' id='email' /><br><br><br>
+            <h2>Information about Event Creator</h2>
+            Please provide us with us information about you (or your organization), including a student/faculty's netID and email. <br><br>
+
+            <u><b>First Name*:</b></u><br> <input type='text' name='firstName' id='firstName' /><br><br>
+            <u><b>Last Name*:</b></u><br> <input type='text' name='lastName' id='lastName' /><br><br>
+            <u><b>NetID*:</b></u><br> <input type='text' name='netID' id='netID' /><br><br>
+            <u><b>Email*:</b></u><br>Please provide an email for users to contact the event host in case of questions. 
+            <br> <input type='text' name='email' id='email' /><br><br><br>
             
             {{> add}}
              
@@ -262,7 +269,9 @@ ddsmoothmenu.init({
         <div class="clear"></div>
     </div>
     <!--Add Events End-->
-    <div class="templatemo_portfolio" id="templatemo_create">
+
+
+    <!--<div class="templatemo_portfolio" id="templatemo_create">
         <h2>Search Events</h2>
             <h3><br></h3>
 
@@ -270,7 +279,7 @@ ddsmoothmenu.init({
 
       
         <div class="clear"></div>
-    </div>
+    </div>-->
     
       
 
@@ -283,11 +292,22 @@ ddsmoothmenu.init({
         <div class="clear"></div>
         <div class="container">
         	<div class="templatemo_paracenter">
-            <h3><strong>Search Function</strong></h3>
-Simply fill in the search bar with interest tags of activities you are interested in (i.e. "basketball") to filter through the calendar events. Alternatively, you can also switch the view to "Today's Calendar" to see an overview of today's events on campus.
+            
+<h3><strong>Creating an Event</strong></h3>
+Blue Devil Events was designed with the Duke Community in mind. As students, we've recognized the lack of a central source for information about the ongoings on campus. Many resources such as DukeGroups and Duke Calendar only post large-scale or official events. However, we know many students host smaller, open events such as weekend BBQs or off-campus pool parties for Dukiesz. Whether you're a student looking for something to do in between classes, a visitor looking fot explore, or looking for more publicity for your event, Blue Devil Events was created for you. All events are viewable to the public for people to search through. Please do not post any information that you do not want made to the public. <b>Do not post private events</b>. Think of Blue Devil Events as your Yik Yak for campus-related (or student/faculty-hosted) events. We are not a calendar, we're simply a resource for you to publish your open events and search for Duke-related events.
+
+<h3><strong>Search Function</strong></h3>
+We provide several ways for you to find events you're interested in or looking for. If you know details about the event (event host, location, etc.) but may have forgotten about key details such as the time, our search function allows you to easily find the events you're looking for by inputting any information you may know about your event. Alternatively, if you're simply looking for an event to pass the time, you can search for keywords in event names, for search for events with tags of interest.<br><br>
+
+Our search function is very user-friendly and here to help any user find an event they'd like. If you don't have any strong preferences, simply select the date of your choice to see <b>all</b> events for that particular day.<br><br>
+
+You can choose to search with as many (or as few) features as you'd like-- whatever helps you find that event!
                 
 <h3><strong>Tags</strong></h3>
-We filter through our database of events using user-inputted tags. Valid tags include (hover over the general category to see more subcategories):
+We provide a list of 16 tags for users to choose from that compromise most of the events. If you feel your event does not belong in any of the available tags, feel free to leave it blank. Tags are simply a way for users to find events given specific interests. Hover down below for a list of available tags. 
+
+
+
             </div>
             <div class="clear"></div>
         </div>
@@ -295,50 +315,49 @@ We filter through our database of events using user-inputted tags. Valid tags in
           	<div class="templatemo_lightgrey_about" id="templatemo_about">
 <div class="templatemo_paracenter">
     	<h2></h2></div>	<div class="container">
-    	<div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">
+    	<div class="col-xs-6 col-sm-6 col-md-6 templatemo_col12">
         	<div class="item project-post">
 						<div class="templatemo_about_box">                      
-                     	   Academic</div>
+                     	   Tags</div>
 						<div class="col-xs-12 col-sm-6 col-md-3 hover-box" >
 							<div class="inner-hover-box">								
-								<p><font color="#ffffff">
-                                Natural Sciences<br>
-                                Social Sciences<br>
-                                Quantitative Studies<br>
-                                Engineering<br>
-                                Panel<br>
-                                Talk<br>
-                                </font>
+								<p>
+                                Academic<br>
+                                Art<br>
+                                Competitions<br>
+                                Cultural<br>
+                                Debates/Discussions<br>
+                                Greek<br>
+                                Jobs/Internships<br>
+                                Lecture/Speakers<br>
+                                Music<br>
+                                Performances<br>
+                                Philanthropy<br>
+                                Political<br>
+                                Religious<br>
+                                Social<br>
+                                Sports<br>
+                                Volunteering
 </p>
 							</div>
 						</div>
 					</div> 	
         </div>
         
-        <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12">
+        <div class="col-xs-6 col-sm-6 col-md-6 templatemo_col12">
         	<div class="item project-post">
 						<div class="templatemo_about_box">
-                     	   Professional</div>
+                     	   Questions?</div>
 						<div class="col-xs-6 col-sm-6 col-md-3 hover-box" >
 							<div class="inner-hover-box">								
-								<p><font color="#ffffff">
-                                Premed<br>
-                                Pre-Law<br>
-                                Pre-Business<br>
-                                Recruiting<br>
-                                Career Fair<br>
-                                Finance<br>
-                                Technology<br>
-                                Management<br>
-                                Consulting<br>
-                                </font>
+								<p><br><br><br>Want us to add a new tag? Serious issues with the database? If you have any suggestions, comments, or questions please feel free to email us at bluedevilevents.cs316@gmail.com.
 </p>
 							</div>
 						</div>
 					</div> 	
         </div>
         
-        <div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12 templatemo_margintop10">
+        <!--<div class="col-xs-6 col-sm-6 col-md-3 templatemo_col12 templatemo_margintop10">
         	<div class="item project-post">
 						<div class="templatemo_about_box">
                      	   Sports</div>
@@ -389,7 +408,9 @@ We filter through our database of events using user-inputted tags. Valid tags in
 							</div>
 						</div>
 					</div> 	
-        </div>
+        </div>-->
+
+
     </div>
     </div>
 <!-- User Guide End -->
@@ -411,9 +432,10 @@ We filter through our database of events using user-inputted tags. Valid tags in
 								<div class="overlay-p">
 									<a href="images/portfolio/01_jenny_kuo.jpg" data-rel="lightbox[portfolio]">
                                     	<ul>
-                                        	<li><strong><br><br>Jenny Kuo</strong></li>
+                                        	<li><strong>Jenny Kuo</strong></li>
                                             <li>CS 316 Student</li>
                                             <li>Senior</li>
+                                            <li>Post-Grad Plans: Investment Banker at Deutsche Bank</li>
                                         </ul>
 									</a>
 								</div>
@@ -428,9 +450,10 @@ We filter through our database of events using user-inputted tags. Valid tags in
 								<div class="overlay-p">
 									<a href="images/portfolio/02_mario_oliver.jpg" data-rel="lightbox[portfolio]">
                                     	<ul>
-                                        	<li><strong><br><br>Mario Oliver</strong></li>
+                                        	<li><strong>Mario Oliver</strong></li>
                                             <li>CS 316 Student</li>
                                             <li>Senior</li>
+                                            <li>Post-Grad Plans: Software Consultant at Booz Allen Hamilton</li>
                                         </ul>
 									</a>
 								</div>
@@ -446,9 +469,10 @@ We filter through our database of events using user-inputted tags. Valid tags in
 								<div class="overlay-p">
 									<a href="images/portfolio/03_spencer_ryals.jpg" data-rel="lightbox[portfolio]">
                                     	<ul>
-                                            <li><strong><br><br>Spencer Ryals</strong></li>
+                                            <li><strong>Spencer Ryals</strong></li>
                                             <li>CS 316 Student</li>
                                             <li>Senior</li>
+                                            <li>Post-Grad Plans: Consultant at McKinsey</li>
                                         </ul>
 									</a>
 								</div>
@@ -464,9 +488,10 @@ We filter through our database of events using user-inputted tags. Valid tags in
 								<div class="overlay-p">
 									<a href="images/portfolio/04_andrew_you.jpg" data-rel="lightbox[portfolio]">
                                     	<ul>
-                                        	<li><strong><br><br>Andrew You</strong></li>
+                                        	<li><strong>Andrew You</strong></li>
                                             <li>CS 316 Student</li>
                                             <li>Senior</li>
+                                            <li>Post-Grad Plans: Grad School *sigh*</li>
                                         </ul>
 									</a>
 								</div>
@@ -755,60 +780,15 @@ $(window).scroll(function(){
 
 <!-- Pattern for Search -->
 <template name="search">
-    <!-- Make one of these forms for each thing you want to search by -->
-    <!--
-    <form class="search-events-by-name">
-        <input type="text" name="query-name" class="query-name" placeholder="Name." />
-        <input type="submit" value="Search Database by Name" />
-    </form>
-    --> 
-
-    <!-- Copy up until here for each new search option -->
-    <!--
-    <form class="search-events-by-location">
-        <input type="text" name="query-location" class="query-location" placeholder="East, West, or Central." />
-        <input type="submit" value="Search Database by Location" />
-    </form>
-
-    <form class="search-events-by-first">
-        <input type="text" name="query-first" class="query-first" placeholder="First Name (e.g. Jun)" />
-        <input type="submit" value="Search Database by First Name" />
-    </form>
-
-    <form class="search-events-by-last">
-        <input type="text" name="query-last" class="query-last" placeholder="Last Name (e.g. Yang)" />
-        <input type="submit" value="Search Database by Last Name" />
-    </form>
-
-    <form class="search-events-by-email">
-        <input type="text" name="query-email" class="query-email" placeholder="Email (e.g. ay46@duke.edu)" />
-        <input type="submit" value="Search Database by Email" />
-    </form>
-
-    <form class="search-events-by-netid">
-        <input type="text" name="query-netid" class="query-netid" placeholder="Net ID (e.g. ab102)" />
-        <input type="submit" value="Search Database by Net ID" />
-    </form>
-
-    <form class="search-events-by-date">
-        <input type="text" name="query-date" class="query-date" placeholder="Date (e.g. 01/05/14)" />
-        <input type="submit" value="Search Database by Date" />
-    </form>
-
-    -->
-
-    <!-- <form class="search-events-by-startTime">
-        <input type="text" name="query-startTime" class="query-startTime" placeholder="Start Time (e.g. 8:00 PM, 11:00 AM)" />
-        <input type="submit" value="Search Database by Start Time" />
-    </form>
-
-    <form class="search-events-by-endTime">
-        <input type="text" name="query-endTime" class="query-endTime" placeholder="End Time (e.g. 8:00 PM, 11:00 AM)" />
-        <input type="submit" value="Search Database by End Time" />
-    </form> -->
 
     <form class="general-search">
-        <input type="text" name="query-name" class="query-name" placeholder="Name." />
+        <b><u>Event Name</u></b>:<br>
+        <input type="text" name="query-name" class="query-name" placeholder="Name of Event." /><br><br>
+
+        <b><u>Host's Name</u></b>:<br>
+         <input type="text" name="query-host" class="query-host" placeholder="Host's Name/Host Organization" /><br><br>
+
+        <b><u>What campus are you on?</u></b>:<br>
         <select type='text' name="query-location" class="query-location" id="eventLocation">
               <option></option>
               <option value="West Campus">West Campus</option>
@@ -817,12 +797,17 @@ $(window).scroll(function(){
               <option value="Off-Campus">Off-Campus</option>
         </select><br><br>
 
-        <input type="text" name="query-first" class="query-first" placeholder="First Name (e.g. Jun)" />
-        <input type="text" name="query-last" class="query-last" placeholder="Last Name (e.g. Yang)" />
-        <input type="text" name="query-email" class="query-email" placeholder="Email (e.g. ay46@duke.edu)" />
-        <input type="text" name="query-netid" class="query-netid" placeholder="Net ID (e.g. ab102)" />
+        <b><u>Date of Event?</u></b>:<br>
         <input type="date" name="query-date" class="query-date" placeholder="Date (e.g. 01/05/14)" /><br><br>
-        
+
+        <b><u>When do you want the event to start?</u></b>:<br>
+        <input type="time" name="query-startTime" class="query-startTime" /><br><br>
+
+        <b><u>When do you want the event to end?</u></b>:<br>
+        <input type="time" name="query-endTime" class="query-endTime" /><br><br>
+
+
+        <b><u>What type of event are you looking for?</u></b>:<br>
         <select type='text' name="query-tag" class="query-tag" id='eventTag'>
           <option></option>
           <option value="Academic">Academic</option>
@@ -844,26 +829,43 @@ $(window).scroll(function(){
         </select><br><br>
 
 
-        <input type="time" name="query-startTime" class="query-startTime" />
-        <input type="time" name="query-endTime" class="query-endTime" />
-        <input type="submit" value="Search Database" />
+
+
+
+        <b><u>Event Hoster's First Name?</u></b>:<br>
+        <input type="text" name="query-first" class="query-first" placeholder="First Name (e.g. Jun)" /><br><br>
+
+        <b><u>vent Hoster's Last Name</u></b>:<br>
+        <input type="text" name="query-last" class="query-last" placeholder="Last Name (e.g. Yang)" /><br><br>
+
+        <b><u>Event Hoster's Email</u></b>:<br>
+        <input type="text" name="query-email" class="query-email" placeholder="Email (e.g. ay46@duke.edu)" /><br><br>
+
+        <b><u>Event Hoster's NetID</u></b>:<br>
+        <input type="text" name="query-netid" class="query-netid" placeholder="Net ID (e.g. ab102)" /><br><br>
+
+
+        
+
+        <input type="submit" value="Search Database" /><br><br><br>
     </form>
 
 
     <!-- Don't change this because whichever search function you call will override the current currentSearchResults -->
     {{#each currentSearchResults}}
-        <span>Event Name: {{name}}.</span>
-        <span>Campus: {{location}}.</span>
-        <span>Specific Location: {{specific}}.</span>
-        <span>First Name: {{first}}.</span>
-        <span>Last Name: {{last}}.</span>
-        <span>Email: {{email}}.</span>
-        <span>NetID: {{netid}}.</span>
-        <span>Date: {{date}}.</span> 
-        <span>Tag: {{tag}}.</span>
-        <span>Start Time: {{startTime}}.</span>
-        <span>End Time: {{endTime}}.</span>
-        <br>
+        <span><b>Event Name</b>: {{name}}.</span><br>
+        <span><b>Host Name</b>: {{host}}.</span><br>
+        <span><b>Campus</b>: {{location}}.</span><br>
+        <span><b>Specific Location</b>: {{specific}}.</span><br>
+        <span><b>First Name</b>: {{first}}.</span><br>
+        <span><b>Last Name</b>: {{last}}.</span><br>
+        <span><b>NetID</b>: {{netid}}.</span><br>
+        <span><b>Email</b>: {{email}}.</span><br>
+        <span><b>Date</b>: {{date}}.</span> <br>
+        <span><b>Tag</b>: {{tag}}.</span><br>
+        <span><b>Start Time</b>: {{startTime}}.</span><br>
+        <span><b>End Time</b>: {{endTime}}.</span><br>
+        <br><br>
     {{/each}}
 
 </template>

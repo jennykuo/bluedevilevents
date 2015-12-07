@@ -13,9 +13,11 @@ if (Meteor.isClient) {
       // increment the counter when button is clicked
       //Session.set('counter', Session.get('counter') + 1);
       event.preventDefault();
+      if($('#eventName').val() != "" && $('#eventLocation').val() != null && $('#eventDate').val() != "" && $('#netID').val() != "" && $('#email').val() != "" && $('#lastName').val() != "" && $('#firstName').val() != "" && $('#specificLocation').val() != ""){
       alert($('#eventName').val() + " has been successfully added to the database.");
       MyEvents.insert({
         "name" : $('#eventName').val(),
+        "host" : $('#eventHost').val(),
         "location" : $('#eventLocation').val(),
         "specific" : $('#specificLocation').val(),
         "first" : $('#firstName').val(),
@@ -27,6 +29,9 @@ if (Meteor.isClient) {
         "startTime" : $('#eventStart').val(),
         "endTime" : $('#eventEnd').val()
       })
+    } else {
+        alert("Please fill out all the required fields");
+      };
     }
   });
 
@@ -74,6 +79,19 @@ if (Meteor.isClient) {
 
       Session.set("currentSearchResults", filteredResults);
     },
+
+    'submit .search-events-by-host': function (event, template) {
+      event.preventDefault();
+
+      var query_host = template.find(".query-host").value;
+      var results = MyEvents.find({}).fetch(); 
+      var filteredResults = _.filter(results, function (r){
+        return r.host.indexOf(query_host) > -1; 
+      });
+
+      Session.set("currentSearchResults", filteredResults);
+    },
+
     'submit .search-events-by-first': function (event, template) {
       event.preventDefault();
 
@@ -169,6 +187,7 @@ if (Meteor.isClient) {
       var query_startTime = template.find(".query-startTime").value;
       var query_endTime = template.find(".query-endTime").value;
       var query_tag = template.find(".query-tag").value; 
+      var query_host = template.find(".query-host").value;
 
 
       var filteredResults = MyEvents.find({}).fetch();
@@ -182,6 +201,12 @@ if (Meteor.isClient) {
       if (query_location) {
         filteredResults = _.filter(filteredResults, function (r) {
           return r.location.indexOf(query_location) > -1;
+        })
+      }
+
+      if (query_host) {
+        filteredResults = _.filter(filteredResults, function (r) {
+          return r.host.indexOf(query_host) > -1;
         })
       }
 
