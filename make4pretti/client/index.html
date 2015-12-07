@@ -203,21 +203,56 @@ ddsmoothmenu.init({
     <!--Events Add Events Start-->
     <div class="templatemo_portfolio" id="templatemo_create">
     	<h2>Add Events</h2>
-            <h3><br></h3>
+            *Indicates Required Fields<br><br><br>
             <form method='post'>
             
-            Event Name:<br> <input type='text' name='eventName' id='eventName' /><br><br>
+            Event Name*:<br> <input type='text' name='eventName' id='eventName' placeholder="Event Name" /><br><br>
             Event Description:<br> <textarea name='eventDescription' id='eventDescription'></textarea><br><br><br>
             
-            Event Location:<br> <input type='text' name='eventLocation' id='eventLocation' /><br><br>
-            Event Date:<br> <input type='text' name='eventDate' id='eventDate' /><br><br>
+            Event Location*<br>
+            <select type= 'text' name='eventLocation' id='eventLocation'>
+              <option></option>
+              <option value="West Campus">West Campus</option>
+              <option value="East Campus">East Campus</option>
+              <option value="Central Campus">Central Campus</option>
+              <option value="Off-Campus">Off-Campus</option>
+            </select><br><br>
+
+            Specific Location*:<br>
+            *Input specific building (and room, if applicable) or physical address<br>
+            <input type='text' name='specificLocation' id='specificLocation' /><br><br>
+
+            Event Date*:<br> <input type='text' name='eventDate' id='eventDate' /><br><br>
             Event Time Start:<br> <input type='text' name='eventStart' id='eventStart' /><br><br>
             Event End Start:<br> <input type='text' name='eventEnd' id='eventEnd' /><br><br><br>
             
-            First Name:<br> <input type='text' name='firstName' id='firstName' /><br><br>
-            Last Name:<br> <input type='text' name='lastName' id='lastName' /><br><br>
-            NetID:<br> <input type='text' name='netID' id='netID' /><br><br>
-            Email:<br> <input type='text' name='email' id='email' /><br><br><br>
+
+            Event Tag:<br>
+            *Leave blank if you do not want to tag your event.<br>
+            <select type= 'text' name='eventTag' id='eventTag'>
+              <option></option>
+              <option value="Academic">Academic</option>
+              <option value="Art">Art</option>
+              <option value="Competitions">Competitions</option>
+              <option value="Cultural">Cultural</option>
+              <option value="Debates/Discussions">Debates/Discussions</option>
+              <option value="Greek">Greek</option>
+              <option value="Jobs/Internships">Jobs/Internships</option>
+              <option value="Lecture/Speaker">Lecture/Speaker</option>
+              <option value="Music">Music</option>
+              <option value="Performances">Performances</option>
+              <option value="Philanthropy">Philanthropy</option>
+              <option value="Political">Political</option>
+              <option value="Religious">Religious</option>
+              <option value="Social">Social</option>
+              <option value="Sports">Sports</option>
+              <option value="Volunteering">Volunteering</option>
+            </select><br><br>
+
+            First Name*:<br> <input type='text' name='firstName' id='firstName' /><br><br>
+            Last Name*:<br> <input type='text' name='lastName' id='lastName' /><br><br>
+            NetID*:<br> <input type='text' name='netID' id='netID' /><br><br>
+            Email*:<br> <input type='text' name='email' id='email' /><br><br><br>
             
             {{> add}}
              
@@ -227,7 +262,15 @@ ddsmoothmenu.init({
         <div class="clear"></div>
     </div>
     <!--Add Events End-->
-    
+    <div class="templatemo_portfolio" id="templatemo_create">
+        <h2>Search Events</h2>
+            <h3><br></h3>
+
+            {{>search}}
+
+      
+        <div class="clear"></div>
+    </div>
     
       
 
@@ -709,6 +752,122 @@ $(window).scroll(function(){
 });
       </script>
 </body>
+
+<!-- Pattern for Search -->
+<template name="search">
+    <!-- Make one of these forms for each thing you want to search by -->
+    <!--
+    <form class="search-events-by-name">
+        <input type="text" name="query-name" class="query-name" placeholder="Name." />
+        <input type="submit" value="Search Database by Name" />
+    </form>
+    --> 
+
+    <!-- Copy up until here for each new search option -->
+    <!--
+    <form class="search-events-by-location">
+        <input type="text" name="query-location" class="query-location" placeholder="East, West, or Central." />
+        <input type="submit" value="Search Database by Location" />
+    </form>
+
+    <form class="search-events-by-first">
+        <input type="text" name="query-first" class="query-first" placeholder="First Name (e.g. Jun)" />
+        <input type="submit" value="Search Database by First Name" />
+    </form>
+
+    <form class="search-events-by-last">
+        <input type="text" name="query-last" class="query-last" placeholder="Last Name (e.g. Yang)" />
+        <input type="submit" value="Search Database by Last Name" />
+    </form>
+
+    <form class="search-events-by-email">
+        <input type="text" name="query-email" class="query-email" placeholder="Email (e.g. ay46@duke.edu)" />
+        <input type="submit" value="Search Database by Email" />
+    </form>
+
+    <form class="search-events-by-netid">
+        <input type="text" name="query-netid" class="query-netid" placeholder="Net ID (e.g. ab102)" />
+        <input type="submit" value="Search Database by Net ID" />
+    </form>
+
+    <form class="search-events-by-date">
+        <input type="text" name="query-date" class="query-date" placeholder="Date (e.g. 01/05/14)" />
+        <input type="submit" value="Search Database by Date" />
+    </form>
+
+    -->
+
+    <!-- <form class="search-events-by-startTime">
+        <input type="text" name="query-startTime" class="query-startTime" placeholder="Start Time (e.g. 8:00 PM, 11:00 AM)" />
+        <input type="submit" value="Search Database by Start Time" />
+    </form>
+
+    <form class="search-events-by-endTime">
+        <input type="text" name="query-endTime" class="query-endTime" placeholder="End Time (e.g. 8:00 PM, 11:00 AM)" />
+        <input type="submit" value="Search Database by End Time" />
+    </form> -->
+
+    <form class="general-search">
+        <input type="text" name="query-name" class="query-name" placeholder="Name." />
+        <select type='text' name="query-location" class="query-location" id="eventLocation">
+              <option></option>
+              <option value="West Campus">West Campus</option>
+              <option value="East Campus">East Campus</option>
+              <option value="Central Campus">Central Campus</option>
+              <option value="Off-Campus">Off-Campus</option>
+        </select><br><br>
+
+        <input type="text" name="query-first" class="query-first" placeholder="First Name (e.g. Jun)" />
+        <input type="text" name="query-last" class="query-last" placeholder="Last Name (e.g. Yang)" />
+        <input type="text" name="query-email" class="query-email" placeholder="Email (e.g. ay46@duke.edu)" />
+        <input type="text" name="query-netid" class="query-netid" placeholder="Net ID (e.g. ab102)" />
+        <input type="text" name="query-date" class="query-date" placeholder="Date (e.g. 01/05/14)" /><br><br>
+        
+        <select type='text' name="query-tag" class="query-tag" id='eventTag'>
+          <option></option>
+          <option value="Academic">Academic</option>
+          <option value="Art">Art</option>
+          <option value="Competitions">Competitions</option>
+          <option value="Cultural">Cultural</option>
+          <option value="Debates/Discussions">Debates/Discussions</option>
+          <option value="Greek">Greek</option>
+          <option value="Jobs/Internships">Jobs/Internships</option>
+          <option value="Lecture/Speaker">Lecture/Speaker</option>
+          <option value="Music">Music</option>
+          <option value="Performances">Performances</option>
+          <option value="Philanthropy">Philanthropy</option>
+          <option value="Political">Political</option>
+          <option value="Religious">Religious</option>
+          <option value="Social">Social</option>
+          <option value="Sports">Sports</option>
+          <option value="Volunteering">Volunteering</option>
+        </select><br><br>
+
+
+        <input type="text" name="query-startTime" class="query-startTime" placeholder="Start Time (e.g. 8:00 PM, 11:00 AM)" />
+        <input type="text" name="query-endTime" class="query-endTime" placeholder="End Time (e.g. 8:00 PM, 11:00 AM)" />
+        <input type="submit" value="Search Database" />
+    </form>
+
+
+    <!-- Don't change this because whichever search function you call will override the current currentSearchResults -->
+    {{#each currentSearchResults}}
+        <span>Event Name: {{name}}.</span>
+        <span>Campus: {{location}}.</span>
+        <span>Specific Location: {{specific}}.</span>
+        <span>First Name: {{first}}.</span>
+        <span>Last Name: {{last}}.</span>
+        <span>Email: {{email}}.</span>
+        <span>NetID: {{netid}}.</span>
+        <span>Date: {{date}}.</span> 
+        <span>Tag: {{tag}}.</span>
+        <span>Start Time: {{startTime}}.</span>
+        <span>End Time: {{endTime}}.</span>
+        <br>
+    {{/each}}
+
+</template>
+
 
 <template name="add">
     <button id="add2">Add to Database</button>
