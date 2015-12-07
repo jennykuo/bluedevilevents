@@ -48,8 +48,8 @@ Factory.define('myEvent', MyEvents, {
 	description: function() {return Fake.sentence(15); },
 	location: function () {return Fake.fromArray(['West Campus','East Campus','Central Campus','Off-Campus']); },
 	specific: function () {return Fake.fromArray(['Soc Sci 139', 'ABP', 'Vondy', 'LSRC D327']); },
-	host: function () {return Fake.fromArray(['Spencer Ryals', 'YADADADA']); },
-	contact: function () {return Fake.fromArray(['scr22@duke.edu', 'parties.R.us@gmail.com', '919-867-5390']); },
+	host: function () {return Fake.fromArray(['Spencer Ryals', 'Investment Club', 'Computer Science Department', 'Duke Business Society', 'HDRL', 'Duke Chinese Dance', 'Business Oriented Women']); },
+	contact: function () {return Fake.fromArray(['scr22@duke.edu', 'parties.R.us@gmail.com', '919-867-5390', '123-456-7890', '145-126-3421']); },
 
 	tag: function() {return Fake.fromArray(['Academic','Art','Competition','Cultural',
 		'Debates/Discussion', 'Greek', 'Jobs/Internships', 'Music', 'Philanthropy',

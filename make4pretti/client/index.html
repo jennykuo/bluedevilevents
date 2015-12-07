@@ -203,13 +203,18 @@ ddsmoothmenu.init({
     <div class="templatemo_portfolio" id="templatemo_create">
     	<h2>Add Events</h2>
             *Indicates Required Fields<br><br><br>
+
             <form method='post'>
-            
             <h2>Event Details</h2>
 
             <u><b>Event Name*:</b></u><br> <input type='text' name='eventName' id='eventName' placeholder="Event Name" /><br><br>
-            <u><b>Host Organization:</b></u><br>If applicable, please provide the organization responsible for hosting the event.<br>
+            <u><b>Host Organization*:</b></u><br>This can be an individual or student group/organization.<br>
             <input type='text' name='eventHost' id='eventHost' placeholder="Event Host" /><br><br>
+
+            <u><b>Host Contact*:</b></u><br>Please provide a method of contact for interested parties to reach you if necessary.
+            <br>Please note this will be made <b>public</b><br>
+            <input type='text' name='eventContac' id='eventContact' placeholder="Phone #/Email" /><br><br>
+
             <u><b>Event Description:</b></u><br> <textarea name='eventDescription' id='eventDescription'></textarea><br><br><br>
             
             <u><b>Event Location*:</b></u><br>
@@ -253,16 +258,17 @@ ddsmoothmenu.init({
             </select><br><br><br><br>
 
             <h2>Information about Event Creator</h2>
-            Please provide us with us information about you (or your organization), including a student/faculty's netID and email. <br><br>
+            For accountability and user safety, please provide us with us information about you, including a student/faculty's netID and email.<br>
+            <b>We will never provide this information to the public.</b><br><br>
 
             <u><b>First Name*:</b></u><br> <input type='text' name='firstName' id='firstName' /><br><br>
             <u><b>Last Name*:</b></u><br> <input type='text' name='lastName' id='lastName' /><br><br>
             <u><b>NetID*:</b></u><br> <input type='text' name='netID' id='netID' /><br><br>
-            <u><b>Email*:</b></u><br>Please provide an email for users to contact the event host in case of questions. 
+            <u><b>Email*:</b></u><br> 
             <br> <input type='text' name='email' id='email' /><br><br><br>
             
             {{> add}}
-             
+            
             </form>
 
       
@@ -832,17 +838,17 @@ $(window).scroll(function(){
 
 
 
-        <b><u>Event Hoster's First Name?</u></b>:<br>
+        <!--<b><u>Event Hoster's First Name?</u></b>:<br>
         <input type="text" name="query-first" class="query-first" placeholder="First Name (e.g. Jun)" /><br><br>
 
-        <b><u>vent Hoster's Last Name</u></b>:<br>
+        <b><u>Event Hoster's Last Name?</u></b>:<br>
         <input type="text" name="query-last" class="query-last" placeholder="Last Name (e.g. Yang)" /><br><br>
 
-        <b><u>Event Hoster's Email</u></b>:<br>
+        <b><u>Event Hoster's Email?</u></b>:<br>
         <input type="text" name="query-email" class="query-email" placeholder="Email (e.g. ay46@duke.edu)" /><br><br>
 
-        <b><u>Event Hoster's NetID</u></b>:<br>
-        <input type="text" name="query-netid" class="query-netid" placeholder="Net ID (e.g. ab102)" /><br><br>
+        <b><u>Event Hoster's NetID?</u></b>:<br>
+        <input type="text" name="query-netid" class="query-netid" placeholder="Net ID (e.g. ab102)" /><br><br>-->
 
 
         
@@ -855,12 +861,13 @@ $(window).scroll(function(){
     {{#each currentSearchResults}}
         <span><b>Event Name</b>: {{name}}.</span><br>
         <span><b>Host Name</b>: {{host}}.</span><br>
+        <span><b>Contact Information</b>: {{contact}}.</span><br>
         <span><b>Campus</b>: {{location}}.</span><br>
         <span><b>Specific Location</b>: {{specific}}.</span><br>
-        <span><b>First Name</b>: {{first}}.</span><br>
+        <!--<span><b>First Name</b>: {{first}}.</span><br>
         <span><b>Last Name</b>: {{last}}.</span><br>
         <span><b>NetID</b>: {{netid}}.</span><br>
-        <span><b>Email</b>: {{email}}.</span><br>
+        <span><b>Email</b>: {{email}}.</span><br>-->
         <span><b>Date</b>: {{date}}.</span> <br>
         <span><b>Tag</b>: {{tag}}.</span><br>
         <span><b>Start Time</b>: {{startTime}}.</span><br>

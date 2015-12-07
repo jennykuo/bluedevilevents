@@ -13,11 +13,12 @@ if (Meteor.isClient) {
       // increment the counter when button is clicked
       //Session.set('counter', Session.get('counter') + 1);
       event.preventDefault();
-      if($('#eventName').val() != "" && $('#eventLocation').val() != null && $('#eventDate').val() != "" && $('#netID').val() != "" && $('#email').val() != "" && $('#lastName').val() != "" && $('#firstName').val() != "" && $('#specificLocation').val() != ""){
+      if($('#eventName').val() != "" && $('#eventHost').val() != "" && $('#eventContact').val() != "" && $('#eventLocation').val() != null && $('#eventDate').val() != "" && $('#netID').val() != "" && $('#email').val() != "" && $('#lastName').val() != "" && $('#firstName').val() != "" && $('#specificLocation').val() != ""){
       alert($('#eventName').val() + " has been successfully added to the database.");
       MyEvents.insert({
         "name" : $('#eventName').val(),
         "host" : $('#eventHost').val(),
+        "contact" : $('#eventContact').val(),
         "location" : $('#eventLocation').val(),
         "specific" : $('#specificLocation').val(),
         "first" : $('#firstName').val(),
@@ -45,7 +46,7 @@ if (Meteor.isClient) {
   });
 
   Template.search.events({
-    'submit .search-events-by-name': function (event, template) {
+    /*'submit .search-events-by-name': function (event, template) {
       event.preventDefault(); // Always have this in your events so the page doesn't keep reloading
       // String entered into the field
       var query_name = template.find(".query-name").value;
@@ -67,7 +68,7 @@ if (Meteor.isClient) {
       Session.set("currentSearchResults", filteredResults);
       // searchResults.push({name: 'blah'});
       // console.log(searchResults);
-    },
+    },*/
     'submit .search-events-by-location': function (event, template) {
       event.preventDefault();
 
@@ -92,7 +93,7 @@ if (Meteor.isClient) {
       Session.set("currentSearchResults", filteredResults);
     },
 
-    'submit .search-events-by-first': function (event, template) {
+    /*'submit .search-events-by-first': function (event, template) {
       event.preventDefault();
 
       var query_first = template.find(".query-first").value;
@@ -138,7 +139,7 @@ if (Meteor.isClient) {
       });
 
       Session.set("currentSearchResults", filteredResults);
-    },
+    },*/
 
     'submit .search-events-by-date': function (event, template) {
       event.preventDefault();
@@ -179,10 +180,10 @@ if (Meteor.isClient) {
       event.preventDefault();
       var query_name = template.find(".query-name").value;
       var query_location = template.find(".query-location").value;
-      var query_first = template.find(".query-first").value;
+      /*var query_first = template.find(".query-first").value;
       var query_last = template.find(".query-last").value;
       var query_email = template.find(".query-email").value;
-      var query_netid = template.find(".query-netid").value;
+      var query_netid = template.find(".query-netid").value;*/
       var query_date = template.find(".query-date").value;
       var query_startTime = template.find(".query-startTime").value;
       var query_endTime = template.find(".query-endTime").value;
@@ -210,7 +211,7 @@ if (Meteor.isClient) {
         })
       }
 
-      if (query_first) {
+      /*if (query_first) {
         filteredResults = _.filter(filteredResults, function (r) {
           return r.first.indexOf(query_first) > -1;
         })
@@ -232,7 +233,7 @@ if (Meteor.isClient) {
         filteredResults = _.filter(filteredResults, function (r) {
           return r.netid.indexOf(query_netid) > -1;
         })
-      }
+      }*/
 
       if (query_date) {
         filteredResults = _.filter(filteredResults, function (r) {
