@@ -6,7 +6,7 @@
 
 numUsers 		= 30;
 numEvents 		= 100;
-populateDB 		= false;
+populateDB 		= true;
 clearDB			= true;
 
 //****** SETTING UP THE FACTORIES *******
