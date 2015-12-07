@@ -206,7 +206,7 @@ ddsmoothmenu.init({
             <h3><br></h3>
             <form method='post'>
             
-            Event Name:<br> <input type='text' name='eventName' id='eventName' /><br><br>
+            Event Name:<br> <input type='text' name='eventName' id='eventName' placeholder="Event Name" /><br><br>
             Event Description:<br> <textarea name='eventDescription' id='eventDescription'></textarea><br><br><br>
             
             Event Location:<br> <input type='text' name='eventLocation' id='eventLocation' /><br><br>
@@ -227,7 +227,15 @@ ddsmoothmenu.init({
         <div class="clear"></div>
     </div>
     <!--Add Events End-->
-    
+    <div class="templatemo_portfolio" id="templatemo_create">
+        <h2>Search Events</h2>
+            <h3><br></h3>
+
+            {{>search}}
+
+      
+        <div class="clear"></div>
+    </div>
     
       
 
@@ -709,6 +717,63 @@ $(window).scroll(function(){
 });
       </script>
 </body>
+
+<!-- Pattern for Search -->
+<template name="search">
+    <!-- Make one of these forms for each thing you want to search by -->
+    <form class="search-events-by-name">
+        <input type="text" name="query-name" class="query-name" placeholder="Name." />
+        <input type="submit" value="Search Database by Name" />
+    </form>
+    <!-- Copy up until here for each new search option -->
+    <form class="search-events-by-location">
+        <input type="text" name="query-location" class="query-location" placeholder="East, West, or Central." />
+        <input type="submit" value="Search Database by Location" />
+    </form>
+
+    <form class="search-events-by-first">
+        <input type="text" name="query-first" class="query-first" placeholder="First Name (e.g. Jun)" />
+        <input type="submit" value="Search Database by First Name" />
+    </form>
+
+    <form class="search-events-by-last">
+        <input type="text" name="query-last" class="query-last" placeholder="Last Name (e.g. Yang)" />
+        <input type="submit" value="Search Database by Last Name" />
+    </form>
+
+    <form class="search-events-by-email">
+        <input type="text" name="query-email" class="query-email" placeholder="Email (e.g. ay46@duke.edu)" />
+        <input type="submit" value="Search Database by Email" />
+    </form>
+
+    <form class="search-events-by-netid">
+        <input type="text" name="query-netid" class="query-netid" placeholder="Net ID (e.g. ab102)" />
+        <input type="submit" value="Search Database by Net ID" />
+    </form>
+
+    <form class="search-events-by-date">
+        <input type="text" name="query-date" class="query-date" placeholder="Date (e.g. 01/05/14)" />
+        <input type="submit" value="Search Database by Date" />
+    </form>
+
+    <form class="search-events-by-startTime">
+        <input type="text" name="query-startTime" class="query-startTime" placeholder="Start Time (e.g. 8:00 PM, 11:00 AM)" />
+        <input type="submit" value="Search Database by Start Time" />
+    </form>
+
+    <form class="search-events-by-endTime">
+        <input type="text" name="query-endTime" class="query-endTime" placeholder="End Time (e.g. 8:00 PM, 11:00 AM)" />
+        <input type="submit" value="Search Database by End Time" />
+    </form>
+
+
+    <!-- Don't change this because whichever search function you call will override the current currentSearchResults -->
+    {{#each currentSearchResults}}
+        <p>{{name}}</p>
+    {{/each}}
+
+</template>
+
 
 <template name="add">
     <button id="add2">Add to Database</button>

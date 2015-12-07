@@ -4,9 +4,10 @@
 
 //****** INPUTS FOR THE SEEDER *******
 
-numUsers 		= 10;
-numEvents 		= 10;
-populateDB 		= false;
+numUsers 		= 30;
+numEvents 		= 100;
+populateDB 		= true;
+clearDB			= true;
 
 //****** SETTING UP THE FACTORIES *******
 
@@ -16,33 +17,50 @@ MyEvents.remove({});
 Factory.define('registeredUser', RegisteredUsers, {
 	//TODO: Update this to use an array for the users based on input at top
 	//Fields: UID, firstName, lastName, email (from group meeting)
-	firstName: 'Spencer',
-	lastName: 'Ryals',
-	email: 'fake.email@duke.edu'
+
+	UID: function() {return _.random(1,1000); },
+
+	first: function() {return Fake.user({fields: ['name'],}).name; },
+
+	last: function() {return Fake.user({fields: ['surname'],}).surname; },
+
+	email: function() {return Fake.user({fields: ['email'],}).email; }
 });
 
 Factory.define('myEvent', MyEvents, {
-	//TODO: Lots of stuff here...
 	//Fields: eventID, creatorID, name, date, start_time, end_time, description,
 	//			location, tag1, tag2, tag3
 	creatorID: Factory.get('registeredUser'),
-	name: Fake.sentence(3),
-	date: function() { return Date(_.random(1440000000000, 1460000000000))},
-	start_time: function() {return _.random(12, 16); },
-	end_time: function() {return _.random(17, 23); },
+	name: function() {return Fake.sentence(3); },
+
+	//Date returns a date between time script is run and 7 days in the future.
+	//date: function() { return new Date(Math.floor((Math.random() * 604800000) +  Date.now() ) ); },
+	date:function() {return '2015-12-' + Math.floor((Math.random() * 15) + 10); },
+
+	//Start time b/w 10:10 and 17:59 
+	start_time: function() {return Math.floor((Math.random() * 7) + 10) +
+	":" + Math.floor((Math.random() * 59) + 10); },
+
+	//End time b/w 18:10 and 23:59
+	end_time: function() {return Math.floor((Math.random() * 5) + 18) +
+	":" + Math.floor((Math.random() * 59) + 10); },
+
 	description: function() {return Fake.sentence(15); },
-	location: function () {return Fake.fromArray(['West','East','Central','Off-Campus']); },
-	tag1: function() {return Fake.fromArray(['sports','music','greek','academic','other']); },
-	tag2: function() {return Fake.fromArray(['sports','music','greek','academic','other']); },
-	tag3: function() {return Fake.fromArray(['sports','music','greek','academic','other']); }
+	location: function () {return Fake.fromArray(['West Campus','East Campus','Central Campus','Off-Campus']); },
+	specific: function () {return Fake.fromArray(['Soc Sci 139', 'ABP', 'Vondy', 'LSRC D327']); },
+	tag: function() {return Fake.fromArray(['Academic','Art','Competition','Cultural',
+		'Debates/Discussion', 'Greek', 'Jobs/Internships', 'Music', 'Philanthropy',
+		'Performances', 'Political', 'Religious', 'Social', 'Sports', 'Volunteering']); }
 });
 
 //******* POPULATING THE PRODUCTION-LEVEL DATABASE *******
 
 if(populateDB){
 
-	RegisteredUsers.remove({});
-	MyEvents.remove({});
+	if(clearDB){
+		RegisteredUsers.remove({});
+		MyEvents.remove({});
+	}
 
 	for (i = 1; i <= numUsers; i++){
 		Factory.create('registeredUser');
