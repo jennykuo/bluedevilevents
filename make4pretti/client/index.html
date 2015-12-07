@@ -222,9 +222,9 @@ ddsmoothmenu.init({
             *Input specific building (and room, if applicable) or physical address<br>
             <input type='text' name='specificLocation' id='specificLocation' /><br><br>
 
-            Event Date*:<br> <input type='text' name='eventDate' id='eventDate' /><br><br>
-            Event Time Start:<br> <input type='text' name='eventStart' id='eventStart' /><br><br>
-            Event End Start:<br> <input type='text' name='eventEnd' id='eventEnd' /><br><br><br>
+            Event Date*:<br> <input type='date' name='eventDate' id='eventDate' /><br><br>
+            Event Time Start:<br> <input type='time' name='eventStart' id='eventStart' /><br><br>
+            Event End Start:<br> <input type='time' name='eventEnd' id='eventEnd' /><br><br><br>
             
 
             Event Tag:<br>
@@ -821,7 +821,7 @@ $(window).scroll(function(){
         <input type="text" name="query-last" class="query-last" placeholder="Last Name (e.g. Yang)" />
         <input type="text" name="query-email" class="query-email" placeholder="Email (e.g. ay46@duke.edu)" />
         <input type="text" name="query-netid" class="query-netid" placeholder="Net ID (e.g. ab102)" />
-        <input type="text" name="query-date" class="query-date" placeholder="Date (e.g. 01/05/14)" /><br><br>
+        <input type="date" name="query-date" class="query-date" placeholder="Date (e.g. 01/05/14)" /><br><br>
         
         <select type='text' name="query-tag" class="query-tag" id='eventTag'>
           <option></option>
@@ -844,8 +844,8 @@ $(window).scroll(function(){
         </select><br><br>
 
 
-        <input type="text" name="query-startTime" class="query-startTime" placeholder="Start Time (e.g. 8:00 PM, 11:00 AM)" />
-        <input type="text" name="query-endTime" class="query-endTime" placeholder="End Time (e.g. 8:00 PM, 11:00 AM)" />
+        <input type="time" name="query-startTime" class="query-startTime" />
+        <input type="time" name="query-endTime" class="query-endTime" />
         <input type="submit" value="Search Database" />
     </form>
 
